@@ -1,4 +1,4 @@
-# DefaultRadar — MSME Default Prediction, 12 Months Ahead
+# DefaultRadar: MSME Default Prediction, 12 Months Ahead
 
 **IDBI Innovate 2026 · Track 04 (Default Prediction Model)**
 
@@ -6,7 +6,7 @@ A probability-of-default model that flags stressed MSME loans **12 months in
 advance** by fusing **structured data** (repayment behaviour, GST trend,
 Account-Aggregator bank-feed signals) with **unstructured data** (NLP flags
 mined from field-visit and call notes), and reports through **one common
-risk-decile framework across all MSME loan types** — Term, Working Capital,
+risk-decile framework across all MSME loan types**; Term, Working Capital,
 Mudra and Machinery.
 
 ## The problem
@@ -23,10 +23,10 @@ structured data, and is fragmented across loan types and borrower segments.
 | Default recall | **55.9%** | 51.5% |
 | KS statistic | 0.648 | 0.651 |
 
-- **Top 3 risk deciles capture 85% of all defaults** — collections and
+- **Top 3 risk deciles capture 85% of all defaults**: collections and
   restructuring effort can be focused on 30% of the book.
 - **Consistent across loan types**: AUC 0.876–0.909 for Machinery, Mudra,
-  Term and Working-Capital loans from a single model — the common
+  Term and Working-Capital loans from a single model; the common
   interpretation framework the problem statement asks for.
 - Unstructured `note_*` features (negative sentiment, dispute mentions,
   inventory pile-up) rank in the top predictors, validating the
