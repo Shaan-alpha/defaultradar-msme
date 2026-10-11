@@ -4,9 +4,10 @@
 
 A probability-of-default model that flags stressed MSME loans **12 months in
 advance** by fusing **structured data** (repayment behaviour, GST trend,
-Account-Aggregator bank-feed signals) with **unstructured data** (NLP flags
-mined from field-visit and call notes), and reports through **one common
-risk-decile framework across all MSME loan types**; Term, Working Capital,
+Account-Aggregator bank-feed signals) with **unstructured data** (field-visit
+and call-note flags, which this prototype simulates as stand-ins for a
+planned production NLP layer), and reports through **one common
+risk-decile framework across all MSME loan types**: Term, Working Capital,
 Mudra and Machinery.
 
 ## The problem
@@ -23,13 +24,20 @@ structured data, and is fragmented across loan types and borrower segments.
 | Default recall | **55.9%** | 51.5% |
 | KS statistic | 0.648 | 0.651 |
 
+Accuracy is measured against a 13.5% default base rate: predicting "no
+default" for every loan would already score 86.5% on this test set.
+
 - **Top 3 risk deciles capture 85% of all defaults**: collections and
   restructuring effort can be focused on 30% of the book.
 - **Consistent across loan types**: AUC 0.876–0.909 for Machinery, Mudra,
-  Term and Working-Capital loans from a single model; the common
+  Term and Working-Capital loans from a single model, which is the common
   interpretation framework the problem statement asks for.
-- Unstructured `note_*` features (negative sentiment, dispute mentions,
-  inventory pile-up) rank in the top predictors, validating the
+- The `note_*` features (negative sentiment, dispute mentions, inventory
+  pile-up) are simulated numeric flags, not text: `train.py` draws them from
+  the same latent stress variable that generates the default label, as
+  stand-ins for an NLP layer planned for production. Their importance
+  (dispute flag 4th, negative sentiment 7th of 13 features) is built into
+  the generator, so this synthetic setup cannot validate the
   structured + unstructured fusion approach.
 
 ## Run it
